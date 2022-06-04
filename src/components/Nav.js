@@ -5,15 +5,14 @@ import { useSelector, useDispatch } from 'react-redux';
 import $ from 'jquery';
 import Cookie from "js-cookie";
 import { logout } from "../../../ecommerce-web-app-1432/actions/userActions";
-import { useRouter } from 'next/router';
 import { supabase } from "../utils/supabase";
-
+import { useNavigate } from "react-router-dom";
 
 const Nav = () => {
     const { user } = useUser();
     const [ userInfo, setUserInfo ] = useState(null);
     const userLogout = useSelector((state) => state.userLogout);
-    const router = useRouter();
+    const navigate = useNavigate();
     const [checkCookies, setCheckCookies] = useState(true);
 
     const [signedIn, setSignedIn] = useState(true);
@@ -26,7 +25,8 @@ const Nav = () => {
 
     const handleLogout = async () => {  
         setUserInfo(null);
-        router.push("/");
+        // router.push("/");
+        navigate("/");
         setSignedIn(false);
         await supabase.auth.signOut();
        

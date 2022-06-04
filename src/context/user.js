@@ -1,6 +1,5 @@
 import { createContext, useState, useEffect, useContext } from "react";
 import { supabase } from "../utils/supabase";
-// import { useRouter } from "next/router";
 import axios from "axios";
 import Cookie from "js-cookie";
 
@@ -9,7 +8,6 @@ const Context = createContext();
 const Provider = ({ children }) => {
     const [user, setUser] = useState(supabase.auth.user());
     const [isLoading, setIsLoading] = useState(true);
-    const router = useRouter();
 
     useEffect(() => {
         if(!supabase.auth.user()){

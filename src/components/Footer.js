@@ -5,7 +5,6 @@ import { useSelector, useDispatch } from 'react-redux';
 import $ from 'jquery';
 // import Cookie from "js-cookie";
 // import { logout } from "../../../ecommerce-web-app-1432/actions/userActions";
-// import { useRouter } from 'next/router';
 import { supabase } from "../utils/supabase";
 
 
