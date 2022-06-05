@@ -1,7 +1,6 @@
 import { createContext, useState, useEffect, useContext } from "react";
 import { supabase } from "../utils/supabase";
 import axios from "axios";
-import Cookie from "js-cookie";
 
 const Context = createContext();
 
@@ -21,13 +20,17 @@ const Provider = ({ children }) => {
 
     useEffect(() => {
         const getUserProfile = async () => {
-            const sessionUser = supabase.auth.user();
-            if(sessionUser){
-                setUser({
-                    ...sessionUser,
-                });
-
-                setIsLoading(false);
+            try {
+                const sessionUser = supabase.auth.user();
+                if(sessionUser){
+                    setUser({
+                        ...sessionUser,
+                    });
+    
+                    setIsLoading(false);
+                }
+            }catch(error){
+                console.log(error);
             }
         };
 
@@ -40,10 +43,15 @@ const Provider = ({ children }) => {
     }, []);
 
     useEffect(() => {
-        axios.post("/api/set-supabase-cookie", {
-            event: user ? "SIGNED_ID" : "SIGNED_OUT",
-            session: supabase.auth.session(),
-        });
+        try{
+            axios.post("/api/set-supabase-cookie", {
+                event: user ? "SIGNED_ID" : "SIGNED_OUT",
+                session: supabase.auth.session(),
+            });
+        }catch(error){
+            console.log(error);
+        }
+        
     }, [user]);
 
 

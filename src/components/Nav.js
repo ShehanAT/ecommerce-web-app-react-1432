@@ -2,9 +2,6 @@
 import { useUser } from "../context/user";
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from 'react-redux';
-import $ from 'jquery';
-import Cookie from "js-cookie";
-import { logout } from "../../../ecommerce-web-app-1432/actions/userActions";
 import { supabase } from "../utils/supabase";
 import { useNavigate } from "react-router-dom";
 
@@ -24,12 +21,15 @@ const Nav = () => {
 
 
     const handleLogout = async () => {  
-        setUserInfo(null);
-        // router.push("/");
-        navigate("/");
-        setSignedIn(false);
-        await supabase.auth.signOut();
-       
+        try{
+            setUserInfo(null);
+            // router.push("/");
+            navigate("/");
+            setSignedIn(false);
+            await supabase.auth.signOut();
+        }catch(error){
+            console.log(error);
+        }
     }
 
     return (

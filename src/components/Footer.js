@@ -1,14 +1,4 @@
-// import Link from "next/link";
-import { useUser } from "../context/user";
 import React, { useEffect, useState } from "react";
-import { useSelector, useDispatch } from 'react-redux';
-import $ from 'jquery';
-// import Cookie from "js-cookie";
-// import { logout } from "../../../ecommerce-web-app-1432/actions/userActions";
-import { supabase } from "../utils/supabase";
-
-
-
 
 const Footer = () => {
 
