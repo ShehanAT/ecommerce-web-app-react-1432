@@ -1,7 +1,7 @@
 {
   "name": "ecommerce-web-app-react-1432",
   "version": "0.1.0",
-  "private": true,
+  "private": true, 
   "dependencies": {
     "@supabase/supabase-js": "^1.35.3",
     "@testing-library/jest-dom": "^5.16.4",
