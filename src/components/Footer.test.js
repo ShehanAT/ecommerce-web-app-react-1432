@@ -25,14 +25,7 @@ describe('Testing Footer component', () => {
 
  
 
-    // beforeEach(() => {
-    //     jest.useFakeTimers()
-       
-
-       
-    // });
-
-    test("Given the footer is rendered When the footer is displayed Then the Navigations title should be displayed", () => {
+    beforeEach(() => {
         const store = mockStore(initialState);
 
         component = render(
@@ -43,6 +36,10 @@ describe('Testing Footer component', () => {
                     </UserProvider>
                 </QueryClientProvider>
             </Provider>)
+    });
+
+    test("Given the footer is rendered When the footer is displayed Then the Navigations title should be displayed", () => {
+       
 
         expect(screen.getByText('Navigations')).toHaveTextContent("Navigations");
     });
