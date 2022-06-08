@@ -1,4 +1,4 @@
-
+jest.useFakeTimers();
 import { configure } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 import { Provider } from "react-redux";
