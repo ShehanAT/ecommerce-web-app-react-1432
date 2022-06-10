@@ -42,17 +42,17 @@ const Provider = ({ children }) => {
 
     }, []);
 
-    useEffect(() => {
-        try{
-            axios.post("/api/set-supabase-cookie", {
-                event: user ? "SIGNED_ID" : "SIGNED_OUT",
-                session: supabase.auth.session(),
-            });
-        }catch(error){
-            console.log(error);
-        }
+    // useEffect(() => {
+    //     try{
+    //         axios.post("/api/set-supabase-cookie", {
+    //             event: user ? "SIGNED_ID" : "SIGNED_OUT",
+    //             session: supabase.auth.session(),
+    //         });
+    //     }catch(error){
+    //         console.log(error);
+    //     }
         
-    }, [user]);
+    // }, [user]);
 
 
     useEffect(() => {

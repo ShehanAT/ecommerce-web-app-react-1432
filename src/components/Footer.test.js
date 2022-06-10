@@ -19,6 +19,11 @@ import Footer from './Footer';
 //     post: () => Promise.resolve({ data: 'data' }),
 // }));
 
+process.on('UnhandledPromiseRejection', (reason) => {
+    console.log(reason);
+    throw e;
+});
+
 describe('Testing Footer component', () => {
 
     let component;
@@ -29,13 +34,15 @@ describe('Testing Footer component', () => {
         const store = mockStore(initialState);
 
         component = render(
-            <Provider store={store}>
-                <QueryClientProvider client={queryClient}>
-                    <UserProvider>
-                        <Footer />
-                    </UserProvider>
-                </QueryClientProvider>
-            </Provider>)
+            // <Provider store={store}>
+            //     <QueryClientProvider client={queryClient}>
+            //         <UserProvider>
+                        
+            //         </UserProvider>
+            //     </QueryClientProvider>
+            // </Provider>
+                <Footer />
+            )
     });
 
     test("Given the footer is rendered When the footer is displayed Then the Navigations title should be displayed", () => {
